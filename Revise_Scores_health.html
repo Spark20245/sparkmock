@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Scores</title>
+    <link rel="stylesheet" href="css/Revise_Scores_health.css"> 
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="navbar-logo">
+            <img src="img/logo_fix.png" alt="Azaries Spark Logo">
+        </div>
+        <div class="navbar-links">
+            <button onclick="location.href='index.html'">Home</button>
+            <button onclick="location.href='#about'">About Us</button>
+            <button onclick="location.href='index.html'">Services</button>
+            <button onclick="location.href='#contact'">Contact</button>
+            <button onclick="location.href='dashbord_health.html'">My Dashboard</button>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Upload File</div>
+        </div>
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Visualization</div>
+        </div>
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Discovery Patterns</div>
+        </div>
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Revise Scores</div>
+        </div>
+        <div class="progress-step">
+            <div class="circle"></div>
+            <div class="label">Results</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Review Selected Scores</h1>
+        <table class="review-table">
+            <thead>
+                <tr>
+                    <th>Pattern Description</th>
+                    <th>Match (%)</th>
+                    <th>Data Points</th>
+                    <th>Selected Score</th>
+                </tr>
+            </thead>
+            <tbody id="review-table-body">
+            </tbody>
+        </table>
+    </div>
+    <button class="results-btn" onclick="location.href='result_health.html'">Results</button>
+
+    <script>
+        const selectedPatterns = [
+            { description: "Patients with Family History of Diabetes",match: "80%",point:"400", score: "Medium" },
+            { description: "Patients with Family History of Cancer", score: "Very High" },
+            { description: "Patients with Family History of Heart Disease", score: "Medium" },
+            { description: "Patients > 65 years with systolic blood pressure > 140 mmHg and LDL cholesterol > 100 mg/dL", score: "Medium" },
+            { description: "Individuals with BMI > 35 and HbA1c > 6.5%", score: "Very High" },
+            { description: "Smokers aged 45-65 with elevated C-reactive protein (CRP > 3 mg/L)", score: "Medium" },
+            { description: "Females > 50 years with family history of breast cancer and BRCA1 mutation", score: "Very High" },
+            { description: "Patients aged 60+ with serum creatinine > 1.5 mg/dL and eGFR < 60 mL/min/1.73 m²", score: "High" },
+            { description: "Men aged 50-70 with PSA > 4 ng/mL and positive family history of prostate cancer", score: "Medium" },
+            { description: "Individuals with high blood pressure (systolic > 130 mmHg) and diabetes (HbA1c > 6.5%)", score: "Very High" },
+        ];
+
+        const tableBody = document.getElementById("review-table-body");
+        selectedPatterns.forEach(pattern => {
+            const row = document.createElement("tr");
+            const descriptionCell = document.createElement("td");
+            const scoreCell = document.createElement("td");
+            descriptionCell.textContent = pattern.description;
+            scoreCell.textContent = pattern.score;
+            row.appendChild(descriptionCell);
+            row.appendChild(scoreCell);
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>

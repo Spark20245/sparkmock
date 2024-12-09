@@ -1,0 +1,142 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #800080;
+            color: #fff;
+            margin: 20px;
+            position: relative;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #5a005a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px; 
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-logo {
+            flex-shrink: 0; 
+        }
+        .navbar-logo img {
+            width: 120px;
+            height: auto;
+        }
+        .navbar-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: nowrap;
+        }
+
+        .navbar-links button {
+            padding: 10px 15px; 
+            background-color: #800080;
+            color: white;
+            border: none;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .navbar-links button:hover {
+            background-color: #e6ccff;
+            color: #800080;
+        }
+
+        .progress-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            max-width: 800px;
+            margin: 80px auto 20px auto; 
+        }
+
+        .progress-step {
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .progress-step .circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin: auto;
+        }
+
+        .progress-step.active .circle {
+            background-color: #28a745;
+        }
+
+        .progress-step .label {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        .progress-step.active .label {
+            color: #28a745;
+        }
+
+        .review-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #ffffffd2;
+            color: #000;
+        }
+
+        .review-table th, .review-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .review-table th {
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 240px;
+        }
+
+        .results-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 30px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .results-btn:hover {
+            background-color: #218838;
+        }
+    

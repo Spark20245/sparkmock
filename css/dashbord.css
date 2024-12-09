@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #800080; 
+    color: #fff; 
+    margin: 0;
+}
+
+/* Navbar Styling */
+nav {
+    background-color: #5a005a; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 20px;
+    width: 100%;
+}
+
+.navbar-logo img {
+    width: 150px;
+    height: auto;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #e6ccff;
+    color: #800080;
+}
+
+.login-button {
+    padding: 10px 15px;
+    background-color: #800080;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #e6ccff;
+}
+
+/* Sidebar Section */
+.sidebar {
+    width: 250px;
+    background-color: #5a005a;
+    padding: 20px;
+    height: 100vh; 
+    position: fixed;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+}
+
+.service-item {
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #800080;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.service-item:hover {
+    background-color: #e6ccff;
+    color: #800080;
+}
+
+.service-item.active {
+    background-color: #e6ccff;
+    color: #800080;
+    font-weight: bold;
+}
+
+/* Dashboard Section Styling */
+.dashboard-wrapper {
+    display: flex;
+    margin-left: 270px; 
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    width: calc(100% - 270px);
+}
+
+.dashboard-container {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.dashboard-container h1 {
+    margin-bottom: 20px;
+}
+
+.icon {
+    display: block;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #800080;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    width: 80%;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.icon:hover {
+    background-color: #922c9e;
+}

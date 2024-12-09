@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Recommendations</title>
+    <link rel="stylesheet" href="css/result_business.css"> 
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="navbar-logo">
+            <img src="img/logo_fix.png" alt="Azaries Spark Logo">
+        </div>
+        <div class="navbar-links">
+            <button onclick="location.href='index.html'">Home</button>
+            <button onclick="location.href='#about'">About Us</button>
+            <button onclick="location.href='#services'">Services</button>
+            <button onclick="location.href='#contact'">Contact</button>
+            <button onclick="location.href='dashboard_business.html'">My Dashboard</button>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Upload File</div>
+        </div>
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Visualization</div>
+        </div>
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Discovery Patterns</div>
+        </div>
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Revise Scores</div>
+        </div>
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Results</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Business Recommendations</h1>
+        <div class="recommendations">
+            <h2>Key Suggestions to Improve Business Performance</h2>
+            <ul>
+                <li>Invest in digital marketing to attract younger and urban demographics.</li>
+                <li>Optimize pricing strategy for low-demand products to increase demand.</li>
+                <li>Launch loyalty programs to enhance customer retention rates.</li>
+                <li>Analyze customer feedback to identify issues with low-performing products and replace them with newer items based on younger customer preferences.</li>
+                <li>Expand the variety of popular products to meet customer demand.</li>
+                <li>Explore geographic expansion by opening new branches in high-potential areas.</li>
+                <li>Enhance customer experience by optimizing customer service and using new technologies.</li>
+                <li>Collaborate more closely with suppliers to reduce costs and improve product quality.</li>
+                <li>Use data analytics to optimize advertising campaign performance.</li>
+                <li>Create periodic reports to monitor and manage branch performance effectively.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="button-container">
+        <button class="button" onclick="downloadReport()">Download Report</button>
+        <button class="button" onclick="location.href='Results _Comparison_business.html'">Compare</button>
+
+        <button class="button" onclick="window.location.href='index.html'">Exit</button>
+    </div>
+
+    <script>
+        function downloadReport() {
+            const element = document.createElement("a");
+            const text = `
+Business Recommendations
+Key Suggestions to Improve Business Performance:
+
+    - Invest in digital marketing to attract younger and urban demographics.
+    - Optimize pricing strategy for low-demand products to increase demand.
+    - Launch loyalty programs to enhance customer retention rates.
+    - Analyze customer feedback to identify issues with low-performing products and replace them with newer items based on younger customer preferences.
+    - Expand the variety of popular products to meet customer demand.
+    - Explore geographic expansion by opening new branches in high-potential areas.
+    - Enhance customer experience by optimizing customer service and using new technologies.
+    - Collaborate more closely with suppliers to reduce costs and improve product quality.
+    - Use data analytics to optimize advertising campaign performance.
+    - Create periodic reports to monitor and manage branch performance effectively.
+`;
+            const file = new Blob([text], { type: "text/plain" });
+            element.href = URL.createObjectURL(file);
+            element.download = "Business_Report.txt";
+            document.body.appendChild(element);
+            element.click();
+        }
+    </script>
+</body>
+</html>

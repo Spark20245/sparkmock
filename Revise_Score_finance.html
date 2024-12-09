@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Scores</title>
+    <link rel="stylesheet" href="css/Revise_Scores_health.css"> 
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="navbar-logo">
+            <img src="img/logo_fix.png" alt="Azaries Spark Logo">
+        </div>
+        <div class="navbar-links">
+            <button onclick="location.href='index.html'">Home</button>
+            <button onclick="location.href='#about'">About Us</button>
+            <button onclick="location.href='index.html'">Services</button>
+            <button onclick="location.href='#contact'">Contact</button>
+            <button onclick="location.href='dashbord_finance.html'">My Dashboard</button>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Upload File</div>
+        </div>
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Visualization</div>
+        </div>
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Discovery Patterns</div>
+        </div>
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Revise Scores</div>
+        </div>
+        <div class="progress-step">
+            <div class="circle"></div>
+            <div class="label">Results</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Review Selected Scores</h1>
+        <table class="review-table">
+            <thead>
+                <tr>
+                    <th>Pattern Description</th>
+                    <th>Match (%)</th>
+                    <th>Data Points</th>
+                    <th>Selected Score</th>
+                </tr>
+            </thead>
+            <tbody id="review-table-body">
+            </tbody>
+        </table>
+    </div>
+    <button class="results-btn" onclick="location.href='result_finance.html'">Results</button>
+
+    <script>
+        const selectedPatterns = [
+            { description: "Stocks with higher trading volumes than their weekly average exhibit higher price volatility.",match: "80%",point:"400", score: "Medium" },
+            { description: "Golden Cross: When the 50-day moving average crosses above the 200-day moving average, prices often rise.", score: "Very High" },
+            { description: "Sudden spikes in trading volume usually indicate significant news or value changes.", score: "High" },
+            { description: "Stock prices increase by an average of 8% after positive news and drop by 12% after negative news.", score: "Very Low" },
+            { description: "RSI above 70 indicates overbought conditions, while RSI below 30 indicates oversold conditions.", score: "Very High" },
+            { description: "Head and Shoulders pattern often signals a trend reversal.", score: "Medium" },
+            { description: "First-quarter stock performance improves due to annual financial reports.", score: "High" },
+            { description: "IT stocks exhibit strong positive correlation with the NASDAQ index.", score: "Very Low" },
+            { description: "Stocks with consistent dividend growth tend to have more stable prices.", score: "High" },
+            { description: "Highly volatile stocks attract short-term investors more often.", score: "Very Low" },
+        ];
+
+        const tableBody = document.getElementById("review-table-body");
+        selectedPatterns.forEach(pattern => {
+            const row = document.createElement("tr");
+            const descriptionCell = document.createElement("td");
+            const scoreCell = document.createElement("td");
+            descriptionCell.textContent = pattern.description;
+            scoreCell.textContent = pattern.score;
+            row.appendChild(descriptionCell);
+            row.appendChild(scoreCell);
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>

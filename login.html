@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login.css"> 
+    <script>
+        const validEmail = "test@example.com";
+        const validPassword = "12345";
+
+        function validateLogin(event) {
+            event.preventDefault();
+
+            const emailInput = document.getElementById("email").value;
+            const passwordInput = document.getElementById("password").value;
+
+            const successMessage = document.getElementById("success-message");
+
+            if (emailInput === validEmail && passwordInput === validPassword) {
+                successMessage.textContent = "Login successful!";
+                successMessage.style.display = "block";
+
+                setTimeout(() => {
+                    window.location.href = "index.html"; 
+                }, 1500);
+            } else {
+                alert("Invalid email or password. Please try again.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <img src="img/logo_fix.png" alt="Company Logo" class="login-logo">
+        <div class="login-header">Sign In</div>
+        <form onsubmit="validateLogin(event)">
+            <input type="email" id="email" placeholder="Enter your email" class="login-input" required>
+            <input type="password" id="password" placeholder="Enter your password" class="login-input" required>
+            <button type="submit" class="login-button">Sign In</button>
+        </form>
+        <p id="success-message" class="success-message" style="display: none;"></p>
+        <div class="extra-links">
+            <a href="signup.html">Don't have an account? Sign up</a>
+            <a href="reset-password.html">Forgot Username / Password?</a>
+        </div>
+    </div>
+</body>
+</html>

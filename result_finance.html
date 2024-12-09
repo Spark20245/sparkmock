@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Business Recommendations</title>
+    <link rel="stylesheet" href="css/result_finance.css"> 
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="navbar-logo">
+            <img src="img/logo_fix.png" alt="Azaries Spark Logo">
+        </div>
+        <div class="navbar-links">
+            <button onclick="location.href='index.html'">Home</button>
+            <button onclick="location.href='#about'">About Us</button>
+            <button onclick="location.href='#services'">Services</button>
+            <button onclick="location.href='#contact'">Contact</button>
+            <button onclick="location.href='dashbord_finance.html'">My Dashboard</button>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Upload File</div>
+        </div>
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Visualization</div>
+        </div>
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Discovery Patterns</div>
+        </div>
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Revise Scores</div>
+        </div>
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Results</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Finance Recommendations</h1>
+        <div class="recommendations">
+            <h2>Key Suggestions to Improve Financial Performance</h2>
+            <ul>
+                <li>Optimize cash flow management by tracking incoming and outgoing cash effectively.</li>
+                <li>Diversify revenue streams to reduce reliance on a single income source.</li>
+                <li>Identify and reduce operational costs without compromising quality.</li>
+                <li>Adopt financial technology solutions to streamline accounting and payment processes.</li>
+                <li>Develop detailed budgets for each department to minimize unnecessary spending.</li>
+                <li>Monitor financial ratios like liquidity, profitability, and debt ratios for informed decisions.</li>
+                <li>Implement robust credit management policies to handle receivables and reduce bad debts.</li>
+                <li>Enhance risk management by regularly assessing risks and ensuring adequate mitigation plans.</li>
+                <li>Strategically allocate resources for high-yielding long-term investments.</li>
+                <li>Conduct regular financial audits to ensure compliance and identify irregularities.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="button-container">
+        <button class="button" onclick="downloadReport()">Download Report</button>
+        <button class="button" onclick="location.href='Results _Comparison_finance.html'">Compare</button>
+        <button class="button" onclick="window.location.href='index.html'">Exit</button>
+    </div>
+
+    <script>
+        function downloadReport() {
+            const element = document.createElement("a");
+            const text = `
+Finance Recommendations
+Key Suggestions to Improve Financial Performance
+
+    - Optimize cash flow management by tracking incoming and outgoing cash effectively.
+    - Diversify revenue streams to reduce reliance on a single income source.
+    - Identify and reduce operational costs without compromising quality.
+    - Adopt financial technology solutions to streamline accounting and payment processes.
+    - Develop detailed budgets for each department to minimize unnecessary spending.
+    - Monitor financial ratios like liquidity, profitability, and debt ratios for informed decisions.
+    - Implement robust credit management policies to handle receivables and reduce bad debts.
+    - Enhance risk management by regularly assessing risks and ensuring adequate mitigation plans.
+    - Strategically allocate resources for high-yielding long-term investments.
+    - Conduct regular financial audits to ensure compliance and identify irregularities.
+`;
+            const file = new Blob([text], { type: "text/plain" });
+            element.href = URL.createObjectURL(file);
+            element.download = "Finance_Report.txt";
+            document.body.appendChild(element);
+            element.click();
+        }
+    </script>
+</body>
+</html>

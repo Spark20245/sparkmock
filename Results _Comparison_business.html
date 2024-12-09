@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results Comparison</title>
+    <link rel="stylesheet" href="css/Results _Comparison_business.css"> 
+</head>
+<body>
+    
+    <img src="img/logo_fix.png" alt="Logo" class="logo">
+
+    <div class="container">
+        <h1>Results Comparison</h1>
+        <p>This page demonstrates how Inductive Logic Programming (ILP) significantly improves pattern discovery and accuracy.</p>
+
+        <div class="chart-container">
+            <canvas id="comparisonChart"></canvas>
+        </div>
+
+        <div class="table-container">
+            <h2>Performance Metrics</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Conventional Method </th>
+                        <th>Enhanced Approach Using ILP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Accuracy (%)</td>
+                        <td>72</td>
+                        <td>92</td>
+                    </tr>
+                    <tr>
+                        <td>Patterns Identified</td>
+                        <td>7</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>False Positives (%)</td>
+                        <td>18</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>False Negatives (%)</td>
+                        <td>10</td>
+                        <td>2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Results Button -->
+    <button class="button" onclick="location.href='result_business.html'">Results</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('comparisonChart').getContext('2d');
+
+        const data = {
+            labels: ['Accuracy', 'False Positives', 'False Negatives'],
+            datasets: [
+                {
+                    label: 'Conventional Method ',
+                    data: [72, 18, 10],
+                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                },
+                {
+                    label: 'Enhanced Approach Using ILP',
+                    data: [92, 6, 2],
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                },
+            ],
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                    },
+                },
+            },
+        };
+
+        new Chart(ctx, config);
+    </script>
+</body>
+</html>

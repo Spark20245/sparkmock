@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Scores</title>
+    <link rel="stylesheet" href="css/Revise_Scores_health.css"> 
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="navbar-logo">
+            <img src="img/logo_fix.png" alt="Azaries Spark Logo">
+        </div>
+        <div class="navbar-links">
+            <button onclick="location.href='index.html'">Home</button>
+            <button onclick="location.href='#about'">About Us</button>
+            <button onclick="location.href='index.html'">Services</button>
+            <button onclick="location.href='#contact'">Contact</button>
+            <button onclick="location.href='dashboard_business'">My Dashboard</button>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Upload File</div>
+        </div>
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Visualization</div>
+        </div>
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Discovery Patterns</div>
+        </div>
+        <div class="progress-step active">
+            <div class="circle"></div>
+            <div class="label">Revise Scores</div>
+        </div>
+        <div class="progress-step">
+            <div class="circle"></div>
+            <div class="label">Results</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Review Selected Scores</h1>
+        <table class="review-table">
+            <thead>
+                <tr>
+                    <th>Pattern Description</th>
+                    <th>Match (%)</th>
+                    <th>Data Points</th>
+                    <th>Selected Score</th>
+                </tr>
+            </thead>
+            <tbody id="review-table-body">
+            </tbody>
+        </table>
+    </div>
+    <button class="results-btn" onclick="location.href='result_business.html'">Results</button>
+
+    <script>
+        const selectedPatterns = [
+            { description: "Normalized comparison of sales in top-performing branches.",match: "85%",point:"400", score: "Medium" },
+            { description: "Analyzing the impact of advertising costs on sales performance.", score: "Very High" },
+            { description: "Demographic analysis of youth, elderly, and urban populations near top branches.", score: "Medium" },
+            { description: "Analyzing proximity to schools, income levels, and suburban populations affecting branch performance.", score: "Medium" },
+            { description: "Combining all factors to evaluate overall branch performance.", score: "Medium" },
+            { description: "Impact of weather conditions on purchase behavior.", score: "Very Low" },
+            { description: "Customer retention through attractive offers for loyal customers.", score: "High" },
+            { description: "Identifying the percentage of low-demand products.", score: "High" },
+            { description: "Analyzing reasons behind low-demand products.", score: "Very Low" },
+            { description: "Finding relationships between purchased items.", score: "Very High" },
+            { description: "Analyzing purchase patterns throughout the day.", score: "High" },
+            { description: "Top-performing products during weekends.", score: "Very High" },
+           
+        ];
+
+        const tableBody = document.getElementById("review-table-body");
+        selectedPatterns.forEach(pattern => {
+            const row = document.createElement("tr");
+            const descriptionCell = document.createElement("td");
+            const scoreCell = document.createElement("td");
+            descriptionCell.textContent = pattern.description;
+            scoreCell.textContent = pattern.score;
+            row.appendChild(descriptionCell);
+            row.appendChild(scoreCell);
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>

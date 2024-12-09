@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discovered Patterns</title>
+    <link rel="stylesheet" href="css/discovery.css"> 
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="navbar-logo">
+          <img src="img/logo_fix.png" alt="Azaries Spark Logo">
+        </div>
+    <div class="navbar-links">
+      <button onclick="location.href='index.html'">Home</button>
+      <button onclick="location.href='#about'">About Us</button>
+      <button onclick="location.href='index.html'">Services</button>
+      <button onclick="location.href='#contact'">Contact</button>
+      <button onclick="location.href='dashbord_finance.html'">My Dashboard</button>
+    </div>
+  </nav>
+
+  <div class="progress-container">
+    <div class="progress-step active ">
+      <div class="circle"></div>
+      <div class="label">Upload File</div>
+    </div>
+    <div class="progress-step active">
+      <div class="circle"></div>
+      <div class="label">Visualization</div>
+    </div>
+    <div class="progress-step active">
+      <div class="circle"></div>
+      <div class="label">Discovery Patterns</div>
+    </div>
+    <div class="progress-step">
+      <div class="circle"></div>
+      <div class="label">Revise Scores</div>
+    </div>
+    <div class="progress-step">
+      <div class="circle"></div>
+      <div class="label">Results</div>
+    </div>
+  </div>
+   
+
+    <div class="container">
+        <h1>Patterns</h1>
+        <p>The table below highlights key stock market patterns discovered from data analysis and please indicate your desired ranking for each.</p>
+        <table class="pattern-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Pattern Description</th>
+                    <th>Match (%)</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Stocks with higher trading volumes than their weekly average exhibit higher price volatility.</td>
+                    <td>85%</td>
+                    <td>
+                        <select class="dropdown">
+                            <option value="1">1 - Very Low</option>
+                            <option value="2" >2 - Low</option>
+                            <option value="3"selected>3 - Medium</option>
+                            <option value="4">4 - High</option>
+                            <option value="5">5 - Very High</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Golden Cross: When the 50-day moving average crosses above the 200-day moving average, prices often rise.</td>
+                    <td>90%</td>
+                    <td>
+                        <select class="dropdown">
+                            <option value="1">1 - Very Low</option>
+                            <option value="2">2 - Low</option>
+                            <option value="3">3 - Medium</option>
+                            <option value="4" >4 - High</option>
+                            <option value="5"selected>5 - Very High</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Sudden spikes in trading volume usually indicate significant news or value changes.</td>
+                    <td>88%</td>
+                    <td>
+                        <select class="dropdown">
+                            <option value="1">1 - Very Low</option>
+                            <option value="2">2 - Low</option>
+                            <option value="3">3 - Medium</option>
+                            <option value="4"selected>4 - High</option>
+                            <option value="5">5 - Very High</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Stock prices increase by an average of 8% after positive news and drop by 12% after negative news.</td>
+                    <td>75%</td>
+                    <td>
+                        <select class="dropdown">
+                            <option value="1" selected>1 - Very Low</option>
+                            <option value="2">2 - Low</option>
+                            <option value="3">3 - Medium</option>
+                            <option value="4">4 - High</option>
+                            <option value="5">5 - Very High</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>RSI above 70 indicates overbought conditions, while RSI below 30 indicates oversold conditions.</td>
+                    <td>78%</td>
+                    <td>
+                        <select class="dropdown">
+                            <option value="1">1 - Very Low</option>
+                            <option value="2">2 - Low</option>
+                            <option value="3">3 - Medium</option>
+                            <option value="4">4 - High</option>
+                            <option value="5" selected>5 - Very High</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Head and Shoulders pattern often signals a trend reversal.</td>
+                    <td>70%</td>
+                    <td>
+                        <select class="dropdown">
+                            <option value="1">1 - Very Low</option>
+                            <option value="2">2 - Low</option>
+                            <option value="3" selected>3 - Medium</option>
+                            <option value="4">4 - High</option>
+                            <option value="5">5 - Very High</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>First-quarter stock performance improves due to annual financial reports.</td>
+                    <td>80%</td>
+                    <td>
+                        <select class="dropdown">
+                            <option value="1">1 - Very Low</option>
+                            <option value="2">2 - Low</option>
+                            <option value="3">3 - Medium</option>
+                            <option value="4" selected>4 - High</option>
+                            <option value="5">5 - Very High</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>IT stocks exhibit strong positive correlation with the NASDAQ index.</td>
+                    <td>82%</td>
+                    <td>
+                        <select class="dropdown">
+                            <option value="1" selected>1 - Very Low</option>
+                            <option value="2">2 - Low</option>
+                            <option value="3">3 - Medium</option>
+                            <option value="4">4 - High</option>
+                            <option value="5">5 - Very High</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Stocks with consistent dividend growth tend to have more stable prices.</td>
+                    <td>90%</td>
+                    <td>
+                        <select class="dropdown">
+                            <option value="1">1 - Very Low</option>
+                            <option value="2">2 - Low</option>
+                            <option value="3">3 - Medium</option>
+                            <option value="4"selected>4 - High</option>
+                            <option value="5">5 - Very High</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Highly volatile stocks attract short-term investors more often.</td>
+                    <td>65%</td>
+                    <td>
+                        <select class="dropdown">
+                            <option value="1" selected>1 - Very Low</option>
+                            <option value="2">2 - Low</option>
+                            <option value="3">3 - Medium</option>
+                            <option value="4">4 - High</option>
+                            <option value="5">5 - Very High</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="button-container">
+            <button class="results-btn" onclick="location.href='result_finance.html'">Results</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Upload with Progress</title>
+  <link rel="stylesheet" href="css/upload.css"> 
+</head>
+<body>
+  <nav>
+    <div class="navbar-logo">
+      <img src="img/logo_fix.png" alt="Azaries Spark Logo">
+    </div>
+    <div class="navbar-links">
+      <a href="index.html" class="login-button">Home</a>
+      <a href="#about" class="login-button">About</a>
+      <a href="index.html" class="login-button">Services</a>
+      <a href="#contact" class="login-button">Contact</a>
+      <a href="dashboard_business.html" class="login-button">My Dashbord</a>
+  </div>
+  </nav>
+
+  <div class="progress-container">
+    <div class="progress-step active">
+      <div class="circle"></div>
+      <div class="label">Upload File</div>
+    </div>
+    <div class="progress-step">
+      <div class="circle"></div>
+      <div class="label">Visualization</div>
+    </div>
+    <div class="progress-step">
+      <div class="circle"></div>
+      <div class="label">Discovery Patterns</div>
+    </div>
+    <div class="progress-step">
+      <div class="circle"></div>
+      <div class="label">Revise Scores</div>
+    </div>
+    <div class="progress-step">
+      <div class="circle"></div>
+      <div class="label">Results</div>
+    </div>
+  </div>
+
+  <div class="upload-container">
+    <div class="upload-header">Multi-Category File Upload</div>
+
+    <div class="file-type-section">
+      <div class="file-type-title">CSV Files</div>
+      <div class="drop-zone" id="csv-drop-zone">Click to Upload CSV Files</div>
+      <input type="file" id="csv-input" accept=".csv" style="display: none;" multiple>
+      <div class="file-list" id="csv-file-list"></div>
+      <div class="progress-bar-container" id="csv-progress-container">
+        <div class="progress-bar" id="csv-progress-bar"></div>
+      </div>
+    </div>
+
+    <div class="file-type-section">
+      <div class="file-type-title">Image Files</div>
+      <div class="drop-zone" id="image-drop-zone">Click to Upload Image Files</div>
+      <input type="file" id="image-input" accept="image/*" style="display: none;" multiple>
+      <div class="file-list" id="image-file-list"></div>
+      <div class="progress-bar-container" id="image-progress-container">
+        <div class="progress-bar" id="image-progress-bar"></div>
+      </div>
+    </div>
+
+    <div class="file-type-section">
+      <div class="file-type-title">Text and Word Files</div>
+      <div class="drop-zone" id="text-drop-zone">Click to Upload Text and Word Files</div>
+      <input type="file" id="text-input" accept=".txt,.docx" style="display: none;" multiple>
+      <div class="file-list" id="text-file-list"></div>
+      <div class="progress-bar-container" id="text-progress-container">
+        <div class="progress-bar" id="text-progress-bar"></div>
+      </div>
+    </div>
+
+    <textarea id="description" class="description-textarea" placeholder="Enter a description of your files (optional)..."></textarea>
+
+    <p class="error-message" id="error-message">Please upload at least one file before submitting.</p>
+    <div class="submit-progress-bar">
+      <div class="submit-progress" id="submit-progress"></div>
+    </div>
+    <button class="submit-button" id="submit-button">Submit</button>
+    <p class="success-message" id="success-message">Submit successful!</p>
+    <button class="visualization-button" id="visualization-button" onclick="navigateToVisualization()">Visualization</button>
+  </div>
+
+  <script>
+    const files = { csv: [], image: [], text: [] };
+    const errorMessage = document.getElementById('error-message');
+    const successMessage = document.getElementById('success-message');
+    const visualizationButton = document.getElementById('visualization-button');
+    const submitProgressBar = document.querySelector('.submit-progress-bar');
+    const submitProgress = document.getElementById('submit-progress');
+
+    function handleFileSelect(event, type, fileListElement, progressContainer) {
+      const selectedFiles = Array.from(event.target.files);
+      files[type].push(...selectedFiles);
+      updateFileList(fileListElement, files[type]);
+      progressContainer.style.display = 'block';
+      startProgress(progressContainer.querySelector('.progress-bar'));
+      errorMessage.style.display = 'none';
+    }
+
+    function updateFileList(element, fileList) {
+      element.innerHTML = fileList.map(file => `<div>${file.name}</div>`).join('');
+    }
+
+    function startProgress(progressBar) {
+      let progress = 0;
+      const interval = setInterval(() => {
+        if (progress >= 100) {
+          clearInterval(interval);
+        } else {
+          progress += 10;
+          progressBar.style.width = `${progress}%`;
+        }
+      }, 300);
+    }
+
+    document.getElementById('csv-drop-zone').addEventListener('click', () => {
+      document.getElementById('csv-input').click();
+    });
+
+    document.getElementById('image-drop-zone').addEventListener('click', () => {
+      document.getElementById('image-input').click();
+    });
+
+    document.getElementById('text-drop-zone').addEventListener('click', () => {
+      document.getElementById('text-input').click();
+    });
+
+    document.getElementById('csv-input').addEventListener('change', (e) => {
+      handleFileSelect(e, 'csv', document.getElementById('csv-file-list'), document.getElementById('csv-progress-container'));
+    });
+
+    document.getElementById('image-input').addEventListener('change', (e) => {
+      handleFileSelect(e, 'image', document.getElementById('image-file-list'), document.getElementById('image-progress-container'));
+    });
+
+    document.getElementById('text-input').addEventListener('change', (e) => {
+      handleFileSelect(e, 'text', document.getElementById('text-file-list'), document.getElementById('text-progress-container'));
+    });
+
+    document.getElementById('submit-button').addEventListener('click', () => {
+      if (files.csv.length === 0 && files.image.length === 0 && files.text.length === 0) {
+        errorMessage.style.display = 'block';
+        return;
+      }
+
+      errorMessage.style.display = 'none';
+      successMessage.style.display = 'none';
+      visualizationButton.style.display = 'none';
+      submitProgressBar.style.display = 'block';
+
+      let progress = 0;
+      const interval = setInterval(() => {
+        if (progress >= 100) {
+          clearInterval(interval);
+          successMessage.style.display = 'block';
+          visualizationButton.style.display = 'inline-block';
+        } else {
+          progress += 5;
+          submitProgress.style.width = `${progress}%`;
+        }
+      }, 100);
+    });
+
+    function navigateToVisualization() {
+      window.location.href = 'visualization_business.html';
+    }
+  </script>
+</body>
+</html>
